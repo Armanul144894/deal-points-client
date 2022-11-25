@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
@@ -19,6 +20,9 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
+        console.log(user);
+        toast.success("Sign Up Successfully");
+        reset();
       })
       .catch((error) => {
         console.error(error);
@@ -43,17 +47,14 @@ const Register = () => {
 
           <div className="form-control w-full ">
             <label className="label">
-              <span className="label-text">Category</span>
+              <span className="label-text">Select</span>
             </label>
             <select
-              {...register("category")}
+              {...register("select")}
               className="select select-bordered w-full max-w-xs"
             >
-              <option disabled selected>
-                Select One
-              </option>
+              <option selected>Buyer</option>
               <option>Seller</option>
-              <option>Buyer</option>
             </select>
           </div>
 
@@ -113,6 +114,7 @@ const Register = () => {
 
         <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, signIn } = useContext(AuthContext);
   const {
     register,
     formState: { errors },
@@ -13,7 +14,21 @@ const Login = () => {
 
   const [loginError, setLoginError] = useState("");
 
-  const handleLogin = (data) => {};
+  const handleLogin = (data) => {
+    const email = data.email;
+    const password = data.password;
+    signIn(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        reset();
+        toast.success("Login Successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoginError(error.message);
+      });
+  };
 
   const handleForgetPassword = () => {};
 
@@ -91,6 +106,7 @@ const Login = () => {
           CONTINUE WITH GOOGLE
         </button>
       </div>
+      <Toaster></Toaster>
     </div>
   );
 };

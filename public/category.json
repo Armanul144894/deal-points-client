@@ -1,0 +1,314 @@
+[
+    {
+        
+        "title": "Science",
+        "items": [
+            {
+                "name": "Physics",
+                "id":"01",
+                "picture": "https://i.ibb.co/FKj0qLB/download-12.jpg",  
+                "location": "Bogura", 
+                "resale_price": 99,
+                "original_price": 149, 
+                "uses_years": 1,
+                "time": "",
+                "seller_name":"Sabbir Rahman"
+            },
+            {
+                "name": "Chemistry",
+                "id":"02",
+                "picture": "https://i.ibb.co/Jd8n6ZB/download-14.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Ridoy Sarkar"    
+            },
+
+           {
+                "name": "Biology",
+                "id":"03",
+                "picture": "https://i.ibb.co/MDqXSnr/download-15.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Anisur Rahman"    
+            },
+
+            {
+                "name": "Mathematics",
+                "id":"04",
+                "picture": "https://i.ibb.co/kMLBt06/download-16.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Arif Hasan"    
+            }
+        ]
+    },
+    {
+        
+        "title": "Business Studies",
+        "items": [
+            {
+                "name": "Accounting",
+                "id":"01",
+                "picture": "https://i.ibb.co/zH5DbPc/download-17.jpg",  
+                "location": "Bogura", 
+                "resale_price": 99,
+                "original_price": 149, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Armanul Islam"
+            },
+            {
+                "name": "Marketing",
+                "id":"02",
+                "picture": "https://i.ibb.co/Bs67MjL/download-18.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Tonu"    
+            },
+
+           {
+                "name": "Management",
+                "id":"03",
+                "picture": "https://i.ibb.co/8PTd7dH/download-19.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Iftekhar"    
+            },
+
+            {
+                "name": "Economics",
+                "id":"04",
+                "picture": "https://i.ibb.co/vhgDkVP/download-20.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Noman"    
+            }
+        ]
+    },
+    {
+        
+        "title": "CSE",
+        "items": [
+            {
+                "name": "Problem Solving",
+                "id":"01",
+                "picture": "https://i.ibb.co/VJNZQFH/download-21.jpg",  
+                "location": "Bogura", 
+                "resale_price": 99,
+                "original_price": 149, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Moon"
+            },
+            {
+                "name": "Algorithm",
+                "id":"02",
+                "picture": "https://i.ibb.co/NxV0GGs/download-22.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Moin"    
+            },
+
+           {
+                "name": "Data Structure",
+                "id":"03",
+                "picture": "https://i.ibb.co/tq3w6np/download-23.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Mahfuj Ali"    
+            },
+
+            {
+                "name": "Python",
+                "id":"04",
+                "picture": "https://i.ibb.co/r36csH7/download-4.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Rakibul Islam"    
+            }
+        ]
+    },
+    {
+        
+        "title": "EEE",
+        "items": [
+            {
+                "name": "Power electronics",
+                "id":"01",
+                "picture": "https://i.ibb.co/bQSVg1t/download-1.jpg",  
+                "location": "Bogura", 
+                "resale_price": 99,
+                "original_price": 149, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"
+            },
+            {
+                "name": "Engineering physics",
+                "id":"02",
+                "picture": "https://i.ibb.co/HFM3f8W/download-2.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            },
+
+           {
+                "name": "Digital electronics",
+                "id":"03",
+                "picture": "https://i.ibb.co/zZbJ1fJ/download-3.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            },
+
+            {
+                "name": "Electric power system",
+                "id":"04",
+                "picture": "https://i.ibb.co/t4pZnkv/download-4.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            }
+        ]
+    },
+    {
+        
+        "title": "NFE",
+        "items": [
+            {
+                "name": "Food chemistry",
+                "id":"01",
+                "picture": "https://i.ibb.co/3Tjh15Y/download-5.jpg",  
+                "location": "Bogura", 
+                "resale_price": 99,
+                "original_price": 149, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"
+            },
+            {
+                "name": "Food safety and microbiology",
+                "id":"02",
+                "picture": "https://i.ibb.co/NpdfXP1/download-6.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            },
+
+           {
+                "name": "Food engineering",
+                "id":"03",
+                "picture": "https://i.ibb.co/1dcP9dS/download-7.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            },
+
+            {
+                "name": "Food processing technologies",
+                "id":"04",
+                "picture": "https://i.ibb.co/fCHd2r1/download-8.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            }
+        ]
+    },
+    {
+        
+        "title": "Social Science",
+        "items": [
+            {
+                "name": "Political science",
+                "id":"01",
+                "picture": "https://i.ibb.co/DMhHb3n/download-9.jpg",  
+                "location": "Bogura", 
+                "resale_price": 99,
+                "original_price": 149, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"
+            },
+            {
+                "name": "Geography",
+                "id":"02",
+                "picture": "https://i.ibb.co/9tpjQPJ/download-10.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            },
+
+           {
+                "name": "Psychology",
+                "id":"03",
+                "picture": "https://i.ibb.co/ZY2NMgb/download.png",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            },
+
+            {
+                "name": "History",
+                "id":"04",
+                "picture": "https://i.ibb.co/m97LSdz/download-11.jpg",  
+                "location": "Pabna", 
+                "resale_price": 120,
+                "original_price": 180, 
+                "uses_years": 1,
+                "time": "10:30 PM",
+                "seller_name":"Sabbir Rahman"    
+            }
+        ]
+    }
+]

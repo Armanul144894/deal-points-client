@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo/book.png";
+import logo from "../../assets/logo/book2.png";
 const Footer = () => {
   return (
     <footer className="footer flex items-center justify-around  p-10 bg-slate-600 text-white font-bold mt-8">
       <div className="flex flex-col">
-        <img className="w-32 h-24" src={logo} alt="" />
+        <img className="w-24 h-24 rounded-full" src={logo} alt="" />
         <p>
           Deal Points Ltd.
           <br />
