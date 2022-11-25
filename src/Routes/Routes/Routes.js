@@ -6,6 +6,7 @@ import Category from "../../Pages/Home/Category/Category";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Login/Register/Register";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -27,7 +28,11 @@ const Routes = () => {
         },
         {
           path: "/category/:id",
-          element: <Category></Category>,
+          element: (
+            <PrivateRoutes>
+              <Category></Category>
+            </PrivateRoutes>
+          ),
           loader: ({ params }) => {
             return fetch(`http://localhost:5000/products/${params.id}`);
           },

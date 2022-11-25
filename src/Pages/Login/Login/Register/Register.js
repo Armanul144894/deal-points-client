@@ -5,7 +5,7 @@ import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, updateUser } = useContext(AuthContext);
 
   const {
     register,
@@ -14,19 +14,48 @@ const Register = () => {
     reset,
   } = useForm();
   const [signUpError, setSignUpError] = useState("");
+  const [createdUserEmail, setCreatedUserEmail] = useState("");
+
   const handleSignUp = (data) => {
     const email = data.email;
     const password = data.password;
+    setSignUpError("");
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         toast.success("Sign Up Successfully");
+        const userInfo = {
+          displayName: data.name,
+          role: data.role,
+        };
+        updateUser(userInfo).then(() => {
+          saveUser(data.email, data.name, data.role);
+        });
         reset();
       })
       .catch((error) => {
         console.error(error);
         setSignUpError(error.message);
+      });
+  };
+
+  const saveUser = (email, name, role) => {
+    const user = { name, email, role };
+    fetch("http://localhost:5000/users", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        setCreatedUserEmail(email);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
       });
   };
   return (
@@ -47,10 +76,10 @@ const Register = () => {
 
           <div className="form-control w-full ">
             <label className="label">
-              <span className="label-text">Select</span>
+              <span className="label-text">Role</span>
             </label>
             <select
-              {...register("select")}
+              {...register("role")}
               className="select select-bordered w-full max-w-xs"
             >
               <option selected>Buyer</option>

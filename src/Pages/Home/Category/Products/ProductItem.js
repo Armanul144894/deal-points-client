@@ -1,4 +1,5 @@
 import React from "react";
+import BookingModal from "../../../BookingModal/BookingModal";
 
 const ProductItem = ({ item }) => {
   const {
@@ -30,8 +31,16 @@ const ProductItem = ({ item }) => {
           <p>Seller Name : {seller_name}</p>
         </div>
         <div className="card-actions justify-end">
-          <div className="btn btn-primary text-white font-bold">Booked Now</div>
+          <label
+            className="btn btn-primary text-white font-bold"
+            htmlFor="booking-modal"
+          >
+            Booked Now
+          </label>
         </div>
+      </div>
+      <div>
+        <BookingModal item={item}></BookingModal>
       </div>
     </div>
   );

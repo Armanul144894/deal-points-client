@@ -1,12 +1,23 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/book.png";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
 const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext);
 
-  const handleLogOut = () => {};
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {
+        toast.success("Sign-out successful.");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   const menuItems = (
     <React.Fragment>
       <li>
@@ -89,6 +100,7 @@ const Header = () => {
           />
         </svg>
       </label>
+      <Toaster></Toaster>
     </div>
   );
 };
