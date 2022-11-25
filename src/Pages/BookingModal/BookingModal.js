@@ -7,9 +7,44 @@ const BookingModal = ({ item }) => {
 
   const { name, resale_price } = item;
 
-  const handleBooking = (data) => {
-    toast.success(`${name} is Booked Successfully`);
+  const handleBooking = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const product = name;
+    const contact = form.phone.value;
+    const location = form.location.value;
+    const booking = {
+      buyer: user?.displayName,
+      email: user?.email,
+      product,
+      price: resale_price,
+      phone: contact,
+      location,
+    };
+    console.log(booking);
+
+    fetch("http://localhost:5000/bookings", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(booking),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+        if (data.acknowledged) {
+          toast.success("Booking Confirm");
+          form.reset();
+        } else {
+          toast.error(data.message);
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
+
   return (
     <>
       <input type="checkbox" id="booking-modal" className="modal-toggle" />

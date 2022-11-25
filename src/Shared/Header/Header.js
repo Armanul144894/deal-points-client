@@ -26,6 +26,9 @@ const Header = () => {
       <li>
         <Link to="/blogs">Blogs</Link>
       </li>
+      <li>
+        <Link to="/blank">Blank</Link>
+      </li>
       {user?.email ? (
         <>
           <li>

@@ -5,7 +5,7 @@ import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 
 const Register = () => {
-  const { createUser, updateUser } = useContext(AuthContext);
+  const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
 
   const {
     register,
@@ -57,6 +57,18 @@ const Register = () => {
       .catch((error) => {
         console.error("Error:", error);
       });
+  };
+
+  const handleGoogleSignIn = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        const role = "Buyer";
+        console.log(user);
+
+        saveUser(user?.displayName, user?.email, role);
+      })
+      .catch((error) => console.error(error));
   };
   return (
     <div className="  flex justify-center items-center ">
@@ -141,7 +153,9 @@ const Register = () => {
 
         <div className="divider my-5">OR</div>
 
-        <button className="btn btn-outline w-full">CONTINUE WITH GOOGLE</button>
+        <button onClick={handleGoogleSignIn} className="btn btn-outline w-full">
+          CONTINUE WITH GOOGLE
+        </button>
       </div>
       <Toaster></Toaster>
     </div>

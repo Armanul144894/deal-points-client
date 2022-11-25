@@ -12,6 +12,7 @@ const ProductItem = ({ item }) => {
     time,
     seller_name,
   } = item;
+
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
@@ -39,9 +40,7 @@ const ProductItem = ({ item }) => {
           </label>
         </div>
       </div>
-      <div>
-        <BookingModal item={item}></BookingModal>
-      </div>
+      <div>{<BookingModal item={item}></BookingModal>}</div>
     </div>
   );
 };

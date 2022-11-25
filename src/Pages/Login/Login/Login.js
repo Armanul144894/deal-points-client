@@ -40,8 +40,28 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+
+        saveUser(user?.displayName, user?.email);
       })
       .catch((error) => console.error(error));
+  };
+
+  const saveUser = (name, email) => {
+    const user = { name, email, role: "Buyer" };
+    fetch("http://localhost:5000/users", {
+      method: "POST", // or 'PUT'
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (

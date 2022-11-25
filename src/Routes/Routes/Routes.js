@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Main from "../../Layouts/Main/Main";
+import Blank from "../../Pages/Blank/Blank";
 import Blogs from "../../Pages/Blogs/Blogs";
 import Category from "../../Pages/Home/Category/Category";
 import Home from "../../Pages/Home/Home";
@@ -42,6 +43,10 @@ const Routes = () => {
           element: <Blogs></Blogs>,
         },
       ],
+    },
+    {
+      path: "/*",
+      element: <Blank></Blank>,
     },
   ]);
   return (
