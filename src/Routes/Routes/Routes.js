@@ -9,6 +9,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login/Login";
 import Register from "../../Pages/Login/Login/Register/Register";
 import MyOrders from "../../Pages/MyOrders/MyOrders";
+import MyProducts from "../../Pages/MyProducts/MyProducts";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const Routes = () => {
@@ -51,6 +52,10 @@ const Routes = () => {
         {
           path: "/addProduct",
           element: <AddProduct></AddProduct>,
+        },
+        {
+          path: "/myProducts",
+          element: <MyProducts></MyProducts>,
         },
       ],
     },

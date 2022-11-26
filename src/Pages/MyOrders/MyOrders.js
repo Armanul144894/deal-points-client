@@ -20,7 +20,7 @@ const MyOrders = () => {
     },
   });
 
-  const handleDeleteOrder = (myOrder) => {
+  const setDeletingOrder = (myOrder) => {
     fetch(`http://localhost:5000/bookings/${myOrder._id}`, {
       method: "DELETE",
       headers: {
@@ -36,32 +36,80 @@ const MyOrders = () => {
   };
   return (
     <div>
-      <h3 className="text-3xl mb-5">My Orders</h3>
-      <div className="w-3/4 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 ">
-        {bookings.map((booking) => (
-          <div
-            key={booking._id}
-            className="card card-side bg-base-100 shadow-xl"
-          >
-            <figure>
-              <img src={booking.picture} alt="Movie" />
-            </figure>
-            <div className="card-body">
-              <p className="card-title">Order {booking._id}</p>
-              <h2 className="card-title">{booking.product}</h2>
-              <p>Price: {booking.price}</p>
-              <div className="flex flex-row items-center justify-center justify-items-start">
-                <FaLocationArrow></FaLocationArrow>
-                <p>{booking.location}</p>
+      <h3 className="text-3xl mb-5 font-bold">My Orders</h3>
+      <div className="w-3/4 mx-auto ">
+        {bookings.map((myOrder, indx) => (
+          <div className="flex flex-col lg:flex-row justify-evenly gap-5 mb-5 mx-5 shadow-md shadow-blue-600 p-3 rounded-md">
+            <div className="text-start">
+              <p className="text-xl font-semibold underline">
+                Order Details: {indx + 1}
+              </p>
+              <div>
+                <p className="font-semibold text-gray-500">
+                  Order
+                  <span className="ml-1">{myOrder._id}</span>
+                </p>
+                <p>
+                  Book Name:
+                  <span className="font-semibold ml-1">{myOrder.product}</span>
+                </p>
+                <p>
+                  Price:
+                  <span className="font-semibold ml-1">
+                    {myOrder.price ? myOrder.price : "0"}
+                  </span>{" "}
+                  tk
+                </p>
+                <>
+                  {myOrder.price && !myOrder.paid && (
+                    <p className="text-rose-500 font-semibold">Unpaid</p>
+                  )}
+                  {myOrder.price && myOrder.paid && (
+                    <p className="text-green-500">Paid</p>
+                  )}
+                </>
               </div>
+            </div>
 
-              <div className="card-actions justify-end">
-                <button
-                  onClick={() => handleDeleteOrder(booking)}
-                  className="btn btn-primary"
-                >
-                  Delete
-                </button>
+            <div className="w-[350px] text-start">
+              <p className="text-xl font-semibold underline">
+                Your Information
+              </p>
+              <div>
+                <p>
+                  Email:
+                  <span className="font-semibold ml-1">{user?.email}</span>
+                </p>
+                <p>
+                  Phone:
+                  <span className="font-semibold ml-1">{myOrder.phone}</span>
+                </p>
+                <p>
+                  Meeting Location:
+                  <span className="font-semibold ml-1 break-words">
+                    {myOrder.location}
+                  </span>
+                </p>
+              </div>
+            </div>
+
+            <div className=" flex gap-5 justify-center items-center">
+              <div>
+                {myOrder.price && !myOrder.paid && (
+                  <Link>
+                    <button className="px-2 py-1 font-semibold rounded outline outline-1 outline-green-600 hover:bg-green-600 hover:text-white hover:cursor-pointer">
+                      Pay Now
+                    </button>
+                  </Link>
+                )}
+                {myOrder.price && myOrder.paid && (
+                  <button
+                    className="px-2 py-1 font-semibold rounded outline outline-1 bg-gray-400  hover:cursor-not-allowed"
+                    disabled
+                  >
+                    Paid
+                  </button>
+                )}
               </div>
             </div>
           </div>

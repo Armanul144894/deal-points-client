@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const {
@@ -10,6 +11,7 @@ const AddProduct = () => {
   } = useForm();
   const imageHostKey = process.env.REACT_APP_imgbb_key;
 
+  const navigate = useNavigate();
   const handleAddProduct = (data) => {
     const image = data.image[0];
     const formData = new FormData();
@@ -47,6 +49,7 @@ const AddProduct = () => {
             .then((result) => {
               console.log(result);
               toast.success(`${data.name} is added successfully`);
+              navigate("/myProducts");
             });
         }
       });
@@ -58,7 +61,7 @@ const AddProduct = () => {
       <form onSubmit={handleSubmit(handleAddProduct)}>
         <div className="form-control w-full ">
           <label className="label">
-            <span className="label-text">Product Name</span>
+            <span className="label-text">Book Name</span>
           </label>
           <input
             type="text"
@@ -117,22 +120,11 @@ const AddProduct = () => {
 
         <div className="form-control w-full ">
           <label className="label">
-            <span className="label-text">Product Category</span>
+            <span className="label-text">Book Category</span>
           </label>
           <input
-            type="number"
+            type="text"
             {...register("category", require)}
-            className="input input-bordered w-full "
-          />
-        </div>
-
-        <div className="form-control w-full ">
-          <label className="label">
-            <span className="label-text">Price</span>
-          </label>
-          <input
-            type="number"
-            {...register("price", require)}
             className="input input-bordered w-full "
           />
         </div>
