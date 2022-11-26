@@ -1,7 +1,7 @@
 import React from "react";
 import BookingModal from "../../../BookingModal/BookingModal";
 
-const ProductItem = ({ item }) => {
+const ProductItem = ({ item, id }) => {
   const {
     name,
     picture,
@@ -40,7 +40,15 @@ const ProductItem = ({ item }) => {
           </label>
         </div>
       </div>
-      <div>{<BookingModal item={item}></BookingModal>}</div>
+      <div>
+        {
+          <BookingModal
+            picture={picture}
+            productId={id}
+            item={item}
+          ></BookingModal>
+        }
+      </div>
     </div>
   );
 };

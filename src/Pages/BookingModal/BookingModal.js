@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 
-const BookingModal = ({ item }) => {
+const BookingModal = ({ item, productId, picture }) => {
   const { user } = useContext(AuthContext);
-
   const { name, resale_price } = item;
+  const navigate = useNavigate();
 
   const handleBooking = (event) => {
     event.preventDefault();
@@ -20,6 +21,7 @@ const BookingModal = ({ item }) => {
       price: resale_price,
       phone: contact,
       location,
+      picture,
     };
     console.log(booking);
 
@@ -35,6 +37,7 @@ const BookingModal = ({ item }) => {
         console.log("Success:", data);
         if (data.acknowledged) {
           toast.success("Booking Confirm");
+          navigate("/");
           form.reset();
         } else {
           toast.error(data.message);

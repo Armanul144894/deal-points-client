@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
@@ -16,6 +16,10 @@ const Register = () => {
   const [signUpError, setSignUpError] = useState("");
   const [createdUserEmail, setCreatedUserEmail] = useState("");
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   const handleSignUp = (data) => {
     const email = data.email;
     const password = data.password;
@@ -31,6 +35,7 @@ const Register = () => {
         };
         updateUser(userInfo).then(() => {
           saveUser(data.email, data.name, data.role);
+          navigate(from, { replace: true });
         });
         reset();
       })
@@ -65,8 +70,8 @@ const Register = () => {
         const user = result.user;
         const role = "Buyer";
         console.log(user);
-
         saveUser(user?.displayName, user?.email, role);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };

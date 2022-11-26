@@ -1,9 +1,8 @@
 import React from "react";
 import { FaArrowAltCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import Category from "../Category/Category";
 const CategoryItem = ({ category }) => {
-  const { title, _id, items } = category;
+  const { title, _id } = category;
   return (
     <Link to={`/category/${_id}`}>
       <div className={`card p-6 md:card-side bg-primary shadow-xl text-white`}>

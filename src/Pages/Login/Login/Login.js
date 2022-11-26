@@ -40,8 +40,8 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
-
         saveUser(user?.displayName, user?.email);
+        navigate(from, { replace: true });
       })
       .catch((error) => console.error(error));
   };
