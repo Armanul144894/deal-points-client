@@ -37,7 +37,7 @@ const BookingModal = ({ item, productId, picture }) => {
         console.log("Success:", data);
         if (data.acknowledged) {
           toast.success("Booking Confirm");
-          navigate("/");
+          navigate("/myOrders");
           form.reset();
         } else {
           toast.error(data.message);
