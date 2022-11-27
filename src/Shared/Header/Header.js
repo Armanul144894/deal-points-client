@@ -3,10 +3,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/book.png";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import useAdmin from "../../hooks/useAdmin/useAdmin";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
-
+  const [isAdmin] = useAdmin(user?.email);
   const navigate = useNavigate();
   const handleLogOut = () => {
     logOut()
@@ -29,23 +30,6 @@ const Header = () => {
       <li>
         <Link to="/blank">Blank</Link>
       </li>
-      {user?.email ? (
-        <>
-          <li>
-            <Link to="/myOrders">My Orders</Link>
-          </li>
-          <li>
-            <Link to="/addProduct">Add Product</Link>
-          </li>
-          <li>
-            <Link onClick={handleLogOut}>Logout</Link>
-          </li>
-        </>
-      ) : (
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      )}
     </React.Fragment>
   );
   return (
@@ -85,6 +69,50 @@ const Header = () => {
 
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">{menuItems}</ul>
+      </div>
+
+      <div className="dropdown dropdown-end">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+          <div className="w-10 rounded-full">
+            <img src="https://placeimg.com/80/80/people" alt="" />
+          </div>
+        </label>
+        <ul
+          tabIndex={0}
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          {user?.email ? (
+            <>
+              <li>
+                <Link to="/myProducts">My Products</Link>
+              </li>
+              <li>
+                <Link to="/myOrders">My Orders</Link>
+              </li>
+              {isAdmin && (
+                <>
+                  <li>
+                    <Link to="/addProduct">Add Product</Link>
+                  </li>
+                  <li>
+                    <Link to="/allSellers">All Sellers</Link>
+                  </li>
+                  <li>
+                    <Link to="/allBuyers">All Buyers</Link>
+                  </li>
+                </>
+              )}
+
+              <li>
+                <Link onClick={handleLogOut}>Logout</Link>
+              </li>
+            </>
+          ) : (
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+          )}
+        </ul>
       </div>
 
       <Toaster></Toaster>

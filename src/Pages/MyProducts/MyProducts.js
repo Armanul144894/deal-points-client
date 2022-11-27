@@ -1,12 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
 import Loading from "../Loading/Loading";
 
 const MyProducts = () => {
   const [deletingProduct, setDeletingProduct] = useState(null);
-
+  const { user } = useContext(AuthContext);
   const closeModal = () => {
     setDeletingProduct(null);
   };
@@ -19,11 +20,14 @@ const MyProducts = () => {
     queryKey: ["products"],
     queryFn: async () => {
       try {
-        const res = await fetch("http://localhost:5000/addedProducts", {
-          headers: {
-            authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          },
-        });
+        const res = await fetch(
+          `http://localhost:5000/addedProducts?email=${user?.email}`,
+          {
+            headers: {
+              authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {}

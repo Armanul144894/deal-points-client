@@ -7,33 +7,19 @@ import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
   const url = `http://localhost:5000/bookings?email=${user?.email}`;
-  const { data: bookings = [], refetch } = useQuery({
+  const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],
     queryFn: async () => {
       const res = await fetch(url, {
-        // headers: {
-        //   authorization: `bearer ${localStorage.getItem("accessToken")}`,
-        // },
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
       });
       const data = await res.json();
       return data;
     },
   });
 
-  const setDeletingOrder = (myOrder) => {
-    fetch(`http://localhost:5000/bookings/${myOrder._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.deletedCount > 0) {
-          refetch();
-        }
-      });
-  };
   return (
     <div>
       <h3 className="text-3xl mb-5 font-bold">My Orders</h3>
