@@ -71,7 +71,7 @@ const Register = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        const role = "Buyer";
+        const role = "buyer";
         console.log(user);
         saveUser(user?.displayName, user?.email, role);
         navigate(from, { replace: true });
@@ -102,8 +102,8 @@ const Register = () => {
               {...register("role")}
               className="select select-bordered w-full max-w-xs"
             >
-              <option selected>Buyer</option>
-              <option>Seller</option>
+              <option selected>buyer</option>
+              <option>seller</option>
             </select>
           </div>
 

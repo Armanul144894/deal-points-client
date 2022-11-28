@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/book.png";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
+import useSeller from "../../hooks/useSeller/useSeller";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
+  const [isSeller] = useSeller(user?.email);
   const navigate = useNavigate();
   const handleLogOut = () => {
     logOut()
@@ -84,16 +86,20 @@ const Header = () => {
           {user?.email ? (
             <>
               <li>
-                <Link to="/myProducts">My Products</Link>
-              </li>
-              <li>
                 <Link to="/myOrders">My Orders</Link>
               </li>
-              {isAdmin && (
+              {isSeller && (
                 <>
+                  <li>
+                    <Link to="/myProducts">My Products</Link>
+                  </li>
                   <li>
                     <Link to="/addProduct">Add Product</Link>
                   </li>
+                </>
+              )}
+              {isAdmin && (
+                <>
                   <li>
                     <Link to="/allSellers">All Sellers</Link>
                   </li>

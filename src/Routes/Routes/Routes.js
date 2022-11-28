@@ -12,6 +12,7 @@ import MyOrders from "../../Pages/MyOrders/MyOrders";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
 import AllBuyers from "../../Pages/UserInfo/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/UserInfo/AllSellers/AllSellers";
+import AdminRoutes from "../AdminRoutes/AdminRoutes";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const Routes = () => {
@@ -61,7 +62,11 @@ const Routes = () => {
         },
         {
           path: "/allSellers",
-          element: <AllSellers></AllSellers>,
+          element: (
+            <AdminRoutes>
+              <AllSellers></AllSellers>
+            </AdminRoutes>
+          ),
         },
         {
           path: "/allBuyers",

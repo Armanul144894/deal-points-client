@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import ConfirmationModal from "../../Shared/ConfirmationModal/ConfirmationModal";
 import Loading from "../Loading/Loading";
@@ -53,8 +53,31 @@ const MyProducts = () => {
         }
       });
   };
+
+  const handleAds = (item) => {
+    const products = {
+      price: item.price,
+      name: item.product,
+      image: item.image,
+      description: item.description,
+    };
+
+    fetch("http://localhost:5000/adsProducts", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(products),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        toast.success(`${item.product} is added successfully`);
+      });
+  };
   return (
-    <div>
+    <div className="w-[95%] mx-auto my-5">
       <h2 className="text-3xl font-bold my-5">
         My Product: {products?.length}
       </h2>
@@ -68,6 +91,7 @@ const MyProducts = () => {
               <th>Price</th>
               <th>Status</th>
               <th>Action</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -92,6 +116,14 @@ const MyProducts = () => {
                     className="btn btn-sm btn-error text-white"
                   >
                     Delete
+                  </label>
+                </td>
+                <td>
+                  <label
+                    onClick={() => handleAds(product)}
+                    className="btn btn-success text-white"
+                  >
+                    Add To Ads
                   </label>
                 </td>
               </tr>
