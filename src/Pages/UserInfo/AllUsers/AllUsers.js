@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
 
 const AllUsers = () => {
   const { user } = useContext(AuthContext);
   const [deletingUser, setDeletingUser] = useState(null);
-
+  useTitle("Users");
   const closeModal = () => {
     setDeletingUser(null);
   };
@@ -43,7 +44,6 @@ const AllUsers = () => {
 
   return (
     <div className="w-[95%] mx-auto">
-      <h2 className="text-3xl font-bold my-5">Manage Doctors</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

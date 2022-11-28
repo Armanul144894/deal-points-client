@@ -5,11 +5,13 @@ import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import useToken from "../../../hooks/useToken/useToken";
 import Loading from "../../Loading/Loading";
+import useTitle from "../../../hooks/useTitle/useTitle";
 const Login = () => {
   const { googleSignIn, signIn, loading } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const [token] = useToken(loginUserEmail);
+  useTitle("Login");
   const {
     register,
     formState: { errors },

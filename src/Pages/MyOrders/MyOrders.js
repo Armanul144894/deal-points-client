@@ -3,9 +3,11 @@ import React, { useContext } from "react";
 import { FaLocationArrow, FaMailBulk, FaPhone } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const MyOrders = () => {
   const { user } = useContext(AuthContext);
+  useTitle("MyOrders");
   const url = `https://deal-points-server.vercel.app/bookings?email=${user?.email}`;
   const { data: bookings = [] } = useQuery({
     queryKey: ["bookings", user?.email],

@@ -4,10 +4,11 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import useToken from "../../../../hooks/useToken/useToken";
+import useTitle from "../../../../hooks/useTitle/useTitle";
 
 const Register = () => {
   const { createUser, updateUser, googleSignIn } = useContext(AuthContext);
-
+  useTitle("Register");
   const {
     register,
     formState: { errors },

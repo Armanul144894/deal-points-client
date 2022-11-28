@@ -1,9 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
+import toast from "react-hot-toast";
 import Loading from "../../Loading/Loading";
 
 const Advertisement = () => {
-  const { data: products = [], isLoading } = useQuery({
+  const {
+    data: products = [],
+    isLoading,
+    refetch,
+  } = useQuery({
     queryKey: ["adsProducts"],
     queryFn: async () => {
       try {
@@ -20,6 +25,22 @@ const Advertisement = () => {
       } catch (error) {}
     },
   });
+
+  const handleDeleteProduct = (product) => {
+    fetch(`https://deal-points-server.vercel.app/adsProducts/${product._id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success(` Ordered successfully`);
+        }
+      });
+  };
 
   if (isLoading) {
     return <Loading></Loading>;
@@ -43,9 +64,12 @@ const Advertisement = () => {
                 <div className="card-body">
                   <h2 className="card-title text-black">{product.name}</h2>
                   <marquee>{product.description}</marquee>
-                  <p className="text-start">Price: {product.price}</p>
+                  <p className="text-start">Price: {product.price} Taka</p>
                   <div className="card-actions justify-center">
-                    <button className="btn w-3/4 font-bold text-white mt-5 btn-primary">
+                    <button
+                      onClick={() => handleDeleteProduct(product)}
+                      className="btn w-3/4 font-bold text-white mt-5 btn-primary"
+                    >
                       Order Now
                     </button>
                   </div>

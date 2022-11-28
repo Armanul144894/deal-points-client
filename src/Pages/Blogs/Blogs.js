@@ -3,8 +3,10 @@ import blog1 from "../../assets/blogs/blog1.png";
 import blog2 from "../../assets/blogs/blog2.png";
 import blog3 from "../../assets/blogs/blog3.png";
 import blog4 from "../../assets/blogs/blog4.png";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const Blogs = () => {
+  useTitle("Blogs");
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-20 w-3/4 mx-auto">
       <div className="card card-compact w-96 bg-base-100 shadow-xl">

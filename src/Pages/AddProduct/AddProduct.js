@@ -2,8 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const AddProduct = () => {
+  useTitle("AddProducts");
   const {
     register,
     handleSubmit,

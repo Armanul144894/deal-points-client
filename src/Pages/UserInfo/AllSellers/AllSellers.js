@@ -3,12 +3,14 @@ import React, { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import useSeller from "../../../hooks/useSeller/useSeller";
+import useTitle from "../../../hooks/useTitle/useTitle";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
 
 const AllSellers = () => {
   const { user } = useContext(AuthContext);
   const [deletingUser, setDeletingUser] = useState(null);
   const [isSeller] = useSeller(user?.email);
+  useTitle("Sellers");
   console.log(isSeller);
   const closeModal = () => {
     setDeletingUser(null);
@@ -45,7 +47,6 @@ const AllSellers = () => {
 
   return (
     <div className="w-[95%] mx-auto">
-      <h2 className="text-3xl font-bold my-5">Manage Doctors</h2>
       <div className="overflow-x-auto">
         <table className="table w-full">
           <thead>

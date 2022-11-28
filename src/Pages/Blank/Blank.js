@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import notFound from "../../assets/blank/notFound.png";
+import useTitle from "../../hooks/useTitle/useTitle";
 
 const Blank = () => {
+  useTitle("Blank");
   return (
     <div className="card w-96 bg-base-300 my-20 shadow-xl mx-auto">
       <figure className="px-5 pt-5">
