@@ -10,3 +10,9 @@
 4. Without login user can't order any book.
 5. Admin can see all the seller and buyers.
 6. Seller can add their product and also advertise their product.
+
+# Admin Info:
+
+adminEmail: [konok@gmail.com]
+
+adminPassword: [A144894a*]
