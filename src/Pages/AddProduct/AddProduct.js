@@ -170,7 +170,7 @@ const AddProduct = () => {
           </div>
         </div>
         <input
-          className="btn  btn-accent my-5 text-white font-bold w-full "
+          className="btn bg-primary btn-accent my-5 text-white font-bold w-full "
           type="submit"
           value="Add Product"
         />

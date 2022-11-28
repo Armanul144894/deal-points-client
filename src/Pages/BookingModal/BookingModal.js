@@ -29,6 +29,7 @@ const BookingModal = ({ item, productId, picture }) => {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",
+        authorization: `bearer ${localStorage.getItem("accessToken")}`,
       },
       body: JSON.stringify(booking),
     })
@@ -131,7 +132,7 @@ const BookingModal = ({ item, productId, picture }) => {
             />
 
             <input
-              className="btn btn-accent text-white font-bold input-bordered input-md w-full"
+              className="btn btn-accent bg-primary text-white font-bold input-bordered input-md w-full"
               type="submit"
               value="submit"
             />
