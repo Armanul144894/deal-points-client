@@ -125,13 +125,13 @@ const Login = () => {
           </div>
 
           <input
-            className="btn btn-accent bg-primary text-black font-bold w-full "
+            className="btn btn-primary text-white font-bold w-full "
             type="submit"
             value="Login"
           />
         </form>
         <p className="mt-3">
-          New to Doctors Portal?{" "}
+          New to Deal Points?{" "}
           <Link to="/signUp" className="text-secondary font-bold">
             Create new account
           </Link>
