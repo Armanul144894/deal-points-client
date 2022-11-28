@@ -12,8 +12,10 @@ import MyOrders from "../../Pages/MyOrders/MyOrders";
 import MyProducts from "../../Pages/MyProducts/MyProducts";
 import AllBuyers from "../../Pages/UserInfo/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/UserInfo/AllSellers/AllSellers";
+import AllUsers from "../../Pages/UserInfo/AllUsers/AllUsers";
 import AdminRoutes from "../AdminRoutes/AdminRoutes";
 import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
+import SellerRoutes from "../SellerRoutes/SellerRoutes";
 
 const Routes = () => {
   const router = createBrowserRouter([
@@ -41,7 +43,9 @@ const Routes = () => {
             </PrivateRoutes>
           ),
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/products/${params.id}`);
+            return fetch(
+              `https://deal-points-server.vercel.app/products/${params.id}`
+            );
           },
         },
         {
@@ -54,17 +58,33 @@ const Routes = () => {
         },
         {
           path: "/addProduct",
-          element: <AddProduct></AddProduct>,
+          element: (
+            <SellerRoutes>
+              <AddProduct></AddProduct>
+            </SellerRoutes>
+          ),
         },
         {
           path: "/myProducts",
-          element: <MyProducts></MyProducts>,
+          element: (
+            <SellerRoutes>
+              <MyProducts></MyProducts>
+            </SellerRoutes>
+          ),
         },
         {
           path: "/allSellers",
           element: (
             <AdminRoutes>
               <AllSellers></AllSellers>
+            </AdminRoutes>
+          ),
+        },
+        {
+          path: "/allUsers",
+          element: (
+            <AdminRoutes>
+              <AllUsers></AllUsers>
             </AdminRoutes>
           ),
         },

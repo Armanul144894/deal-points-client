@@ -56,7 +56,7 @@ const Login = () => {
 
   const saveUser = (name, email) => {
     const user = { name, email, role: "Buyer" };
-    fetch("http://localhost:5000/users", {
+    fetch("https://deal-points-server.vercel.app/users", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

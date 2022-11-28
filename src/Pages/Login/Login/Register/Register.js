@@ -50,7 +50,7 @@ const Register = () => {
 
   const saveUser = (email, name, role) => {
     const user = { name, email, role };
-    fetch("http://localhost:5000/users", {
+    fetch("https://deal-points-server.vercel.app/users", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

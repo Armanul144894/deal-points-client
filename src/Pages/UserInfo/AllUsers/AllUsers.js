@@ -2,20 +2,18 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useContext, useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
-import useSeller from "../../../hooks/useSeller/useSeller";
 import ConfirmationModal from "../../../Shared/ConfirmationModal/ConfirmationModal";
 
-const AllSellers = () => {
+const AllUsers = () => {
   const { user } = useContext(AuthContext);
   const [deletingUser, setDeletingUser] = useState(null);
-  const [isSeller] = useSeller(user?.email);
-  console.log(isSeller);
+
   const closeModal = () => {
     setDeletingUser(null);
   };
   const url = `https://deal-points-server.vercel.app/users`;
   const { data: users = [], refetch } = useQuery({
-    queryKey: ["users"],
+    queryKey: ["users", user?.email],
     queryFn: async () => {
       const res = await fetch(url, {
         headers: {
@@ -96,4 +94,4 @@ const AllSellers = () => {
   );
 };
 
-export default AllSellers;
+export default AllUsers;

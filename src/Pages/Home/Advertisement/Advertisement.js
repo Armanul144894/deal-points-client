@@ -7,11 +7,14 @@ const Advertisement = () => {
     queryKey: ["adsProducts"],
     queryFn: async () => {
       try {
-        const res = await fetch(`http://localhost:5000/adsProducts`, {
-          //   headers: {
-          //     authorization: `bearer ${localStorage.getItem("accessToken")}`,
-          //   },
-        });
+        const res = await fetch(
+          `https://deal-points-server.vercel.app/adsProducts`,
+          {
+            //   headers: {
+            //     authorization: `bearer ${localStorage.getItem("accessToken")}`,
+            //   },
+          }
+        );
         const data = await res.json();
         return data;
       } catch (error) {}
@@ -41,8 +44,10 @@ const Advertisement = () => {
                   <h2 className="card-title text-black">{product.name}</h2>
                   <marquee>{product.description}</marquee>
                   <p className="text-start">Price: {product.price}</p>
-                  <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Learn now!</button>
+                  <div className="card-actions justify-center">
+                    <button className="btn w-3/4 font-bold text-white mt-5 btn-primary">
+                      Order Now
+                    </button>
                   </div>
                 </div>
               </div>

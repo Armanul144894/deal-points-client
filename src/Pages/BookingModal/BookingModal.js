@@ -25,7 +25,7 @@ const BookingModal = ({ item, productId, picture }) => {
     };
     console.log(booking);
 
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://deal-points-server.vercel.app/bookings", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

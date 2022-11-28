@@ -101,6 +101,9 @@ const Header = () => {
               {isAdmin && (
                 <>
                   <li>
+                    <Link to="/allUsers">All Users</Link>
+                  </li>
+                  <li>
                     <Link to="/allSellers">All Sellers</Link>
                   </li>
                   <li>

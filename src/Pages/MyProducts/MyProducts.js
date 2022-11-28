@@ -22,7 +22,7 @@ const MyProducts = () => {
     queryFn: async () => {
       try {
         const res = await fetch(
-          `http://localhost:5000/addedProducts?email=${user?.email}`,
+          `https://deal-points-server.vercel.app/addedProducts?email=${user?.email}`,
           {
             headers: {
               authorization: `bearer ${localStorage.getItem("accessToken")}`,
@@ -40,12 +40,15 @@ const MyProducts = () => {
   }
 
   const handleDeleteProduct = (product) => {
-    fetch(`http://localhost:5000/addedProducts/${product._id}`, {
-      method: "DELETE",
-      headers: {
-        authorization: `bearer ${localStorage.getItem("accessToken")}`,
-      },
-    })
+    fetch(
+      `https://deal-points-server.vercel.app/addedProducts/${product._id}`,
+      {
+        method: "DELETE",
+        headers: {
+          authorization: `bearer ${localStorage.getItem("accessToken")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.deletedCount > 0) {
@@ -63,7 +66,7 @@ const MyProducts = () => {
       description: product.description,
     };
 
-    fetch("http://localhost:5000/adsProducts", {
+    fetch("https://deal-points-server.vercel.app/adsProducts", {
       method: "POST",
       headers: {
         "content-type": "application/json",
