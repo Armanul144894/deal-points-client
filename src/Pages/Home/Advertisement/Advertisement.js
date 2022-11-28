@@ -29,7 +29,7 @@ const Advertisement = () => {
     <div className="w-3/4 mx-auto my-10">
       {products.length ? (
         <>
-          <h1 className="text-xl font-bold text-center">Advertisement</h1>
+          <h1 className="text-xl font-bold text-center my-10">Advertisement</h1>
           <div className=" grid grid-cols-1 md:grid-cols-2 gap-10">
             {products.map((product) => (
               <div key={product._id} className="card glass">

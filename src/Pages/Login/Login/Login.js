@@ -4,8 +4,9 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../Context/AuthProvider/AuthProvider";
 import toast, { Toaster } from "react-hot-toast";
 import useToken from "../../../hooks/useToken/useToken";
+import Loading from "../../Loading/Loading";
 const Login = () => {
-  const { googleSignIn, signIn } = useContext(AuthContext);
+  const { googleSignIn, signIn, loading } = useContext(AuthContext);
   const [loginError, setLoginError] = useState("");
   const [loginUserEmail, setLoginUserEmail] = useState("");
   const [token] = useToken(loginUserEmail);
@@ -23,6 +24,9 @@ const Login = () => {
     navigate(from, { replace: true });
   }
 
+  if (loading) {
+    return <Loading></Loading>;
+  }
   const handleLogin = (data) => {
     const email = data.email;
     const password = data.password;
@@ -119,7 +123,7 @@ const Login = () => {
           </div>
 
           <input
-            className="btn btn-accent text-white font-bold w-full "
+            className="btn btn-accent bg-primary text-white font-bold w-full "
             type="submit"
             value="Login"
           />

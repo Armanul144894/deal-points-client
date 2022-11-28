@@ -24,13 +24,19 @@ const Header = () => {
   const menuItems = (
     <React.Fragment>
       <li>
-        <Link to="/">Home</Link>
+        <Link className="btn btn-ghost" to="/">
+          Home
+        </Link>
       </li>
       <li>
-        <Link to="/blogs">Blogs</Link>
+        <Link className="btn btn-ghost" to="/blogs">
+          Blogs
+        </Link>
       </li>
       <li>
-        <Link to="/blank">Blank</Link>
+        <Link className="btn btn-ghost" to="/blank">
+          Blank
+        </Link>
       </li>
     </React.Fragment>
   );
@@ -74,9 +80,20 @@ const Header = () => {
       </div>
 
       <div className="dropdown dropdown-end">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
-            <img src="https://placeimg.com/80/80/people" alt="" />
+        <label tabIndex={0} className="btn btn-ghost ">
+          <div className="mt-4">
+            <Link className="flex flex-col">
+              Dashboard
+              <svg
+                className="fill-current"
+                xmlns="httLink://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+              </svg>
+            </Link>
           </div>
         </label>
         <ul

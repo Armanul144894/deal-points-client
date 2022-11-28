@@ -60,7 +60,7 @@ const Register = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        setCreatedUserEmail(data.email);
+        setCreatedUserEmail(email);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -147,7 +147,7 @@ const Register = () => {
           </div>
 
           <input
-            className="btn btn-accent my-5 text-white font-bold w-full "
+            className="btn btn-accent bg-primary my-5 text-white font-bold w-full "
             type="submit"
             value="Sign Up"
           />
