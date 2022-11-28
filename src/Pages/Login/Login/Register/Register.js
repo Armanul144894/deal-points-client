@@ -60,7 +60,7 @@ const Register = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log("Success:", data);
-        setCreatedUserEmail(email);
+        setCreatedUserEmail(data.email);
       })
       .catch((error) => {
         console.error("Error:", error);

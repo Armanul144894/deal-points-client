@@ -8,6 +8,7 @@ import Loading from "../Loading/Loading";
 const MyProducts = () => {
   const [deletingProduct, setDeletingProduct] = useState(null);
   const { user } = useContext(AuthContext);
+  const [disable, setDisable] = useState(false);
   const closeModal = () => {
     setDeletingProduct(null);
   };
@@ -54,12 +55,12 @@ const MyProducts = () => {
       });
   };
 
-  const handleAds = (item) => {
+  const handleAds = (product) => {
     const products = {
-      price: item.price,
-      name: item.product,
-      image: item.image,
-      description: item.description,
+      price: product.price,
+      name: product.product,
+      image: product.image,
+      description: product.description,
     };
 
     fetch("http://localhost:5000/adsProducts", {
@@ -73,7 +74,8 @@ const MyProducts = () => {
       .then((res) => res.json())
       .then((result) => {
         console.log(result);
-        toast.success(`${item.product} is added successfully`);
+        setDisable(true);
+        toast.success(`${product.product} is added successfully`);
       });
   };
   return (
@@ -120,6 +122,7 @@ const MyProducts = () => {
                 </td>
                 <td>
                   <label
+                    disable={disable}
                     onClick={() => handleAds(product)}
                     className="btn btn-success text-white"
                   >
