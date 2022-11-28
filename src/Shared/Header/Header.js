@@ -4,12 +4,14 @@ import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logo/book.png";
 import { AuthContext } from "../../Context/AuthProvider/AuthProvider";
 import useAdmin from "../../hooks/useAdmin/useAdmin";
+import useBuyer from "../../hooks/useBuyer/useBuyer";
 import useSeller from "../../hooks/useSeller/useSeller";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
   const [isAdmin] = useAdmin(user?.email);
   const [isSeller] = useSeller(user?.email);
+  const [isBuyer] = useBuyer(user?.email);
   const navigate = useNavigate();
   const handleLogOut = () => {
     logOut()
@@ -102,9 +104,12 @@ const Header = () => {
         >
           {user?.email ? (
             <>
-              <li>
-                <Link to="/myOrders">My Orders</Link>
-              </li>
+              {isBuyer && (
+                <li>
+                  <Link to="/myOrders">My Orders</Link>
+                </li>
+              )}
+
               {isSeller && (
                 <>
                   <li>
