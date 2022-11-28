@@ -125,7 +125,7 @@ const Login = () => {
           </div>
 
           <input
-            className="btn btn-primary text-white font-bold w-full "
+            className="btn btn-primary text-black font-bold w-full "
             type="submit"
             value="Login"
           />
