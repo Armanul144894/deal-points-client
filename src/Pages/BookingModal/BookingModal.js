@@ -132,7 +132,7 @@ const BookingModal = ({ item, productId, picture }) => {
             />
 
             <input
-              className="btn btn-accent bg-primary text-white font-bold input-bordered input-md w-full"
+              className="btn btn-accent bg-primary text-black font-bold input-bordered input-md w-full"
               type="submit"
               value="submit"
             />
