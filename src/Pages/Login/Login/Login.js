@@ -27,7 +27,11 @@ const Login = () => {
   }
 
   if (loading) {
-    return <Loading></Loading>;
+    return (
+      <div className="text-center">
+        <Loading></Loading>
+      </div>
+    );
   }
   const handleLogin = (data) => {
     const email = data.email;

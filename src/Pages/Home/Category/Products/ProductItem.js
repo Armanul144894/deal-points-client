@@ -1,7 +1,11 @@
 import React from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../../../Context/AuthProvider/AuthProvider";
 import BookingModal from "../../../BookingModal/BookingModal";
+import Loading from "../../../Loading/Loading";
 
 const ProductItem = ({ item, id }) => {
+  const { loading } = useContext(AuthContext);
   const {
     name,
     picture,
@@ -13,6 +17,9 @@ const ProductItem = ({ item, id }) => {
     seller_name,
   } = item;
 
+  if (loading) {
+    return <Loading></Loading>;
+  }
   return (
     <div className="card bg-base-100 shadow-xl">
       <figure>
