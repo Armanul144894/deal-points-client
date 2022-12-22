@@ -61,7 +61,7 @@ const Login = () => {
   };
 
   const saveUser = (name, email) => {
-    const user = { name, email, role: "Buyer" };
+    const user = { name, email, role: "buyer" };
     fetch("https://deal-points-server.vercel.app/users", {
       method: "POST", // or 'PUT'
       headers: {
