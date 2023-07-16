@@ -7,6 +7,8 @@ import Advertisement from "./Advertisement/Advertisement";
 import Banner from "./Banner/Banner";
 import Categories from "./Categories/Categories";
 import HomeDelivery from "./HomeDelivery/HomeDelivery";
+import Contact from "./Contact/Contact";
+import ChooseUs from "./ChooseUs/ChooseUs";
 
 const Home = () => {
   useTitle("Home");
@@ -23,6 +25,8 @@ const Home = () => {
       <Banner></Banner>
       <Categories></Categories>
       <Advertisement></Advertisement>
+      <ChooseUs></ChooseUs>
+      <Contact></Contact>
       <HomeDelivery></HomeDelivery>
     </div>
   );
